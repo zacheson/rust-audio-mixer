@@ -1,0 +1,17 @@
+[package]
+name = "audio_mixer"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+
+[features]
+ogg = ["lewton"]
+wav = ["hound"]
+
+[dependencies]
+atomic_float = "*"
+cpal = "=0.14.2"
+lewton = { version = "*", optional = true }
+hound = { version = "*", optional = true }

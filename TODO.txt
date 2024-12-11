@@ -1,0 +1,13 @@
+- Integrate with my game
+- Handle changes to the output channels and sample rate in the Into structs
+  - Pre-work to allow audio device to be swapped out (so that channels remain in-sync)
+  - Use the new handle_changes mechanism
+- Add support for setting the device the iterators are currently playing on (hot swapping)
+  - Replace _stream with a new one, set channels, sample_rate
+  - Need to synchronize so the channels are in-step with the iterators
+    - Maybe call .next() on all playing sources until then
+  - The IntoChannels and IntoSampleRate iterators will need to take dynamic values
+    - Maybe introduce mixer.channels_dynamic() and .sample_rate_dynamic() to make this easier
+- Maybe add better test coverage, e.g. LowPassFilter
+- Maybe consider a memo-izing approach to LowPassFilter based on the new handle_changes mechanism
+- Rename and publish the crate
